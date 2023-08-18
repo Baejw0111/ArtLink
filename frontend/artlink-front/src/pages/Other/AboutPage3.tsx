@@ -1,9 +1,12 @@
-import introVideo from "../../assets/video/video1.mp4";
+import introVideo from "../../assets/video/introVideo.mp4";
 
 function AboutPage3() {
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "auto" }} className="videoOuter"> 
+      <div
+        style={{ display: "flex", justifyContent: "auto" }}
+        className="videoOuter"
+      >
         <video
           // controls
           // height="100%"

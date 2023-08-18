@@ -45,22 +45,58 @@ import Contact from "./pages/Other/Contact";
 import AboutUs from "./pages/Other/AboutUs";
 // Only Developer (*** Del After release ***)
 import PageManager from "./pages/PageManager";
-import Apitest from "./api/Apitest";
-import TestSignup from "./api/testSignup";
-import TestLogin from "./api/testLogin";
 import NotFound from "./pages/Common/NotFound";
 import ExhibitionCreate from "./pages/Gallery/ExhibitionCreate";
 import ExhibitionUpdate from "./pages/Gallery/ExhibitionUpdate";
 import Team from "./commponents/Contact/Team";
 import Policy from "./pages/Other/Policy";
+import jwt_decode from "jwt-decode";
+
+interface DecodedToken {
+  sub: string;
+  role: string;
+  id: number;
+  exp: number;
+  username: string;
+  accepted: boolean;
+}
 
 function App() {
   // 로그인 여부 판단
   const isLoggedIn = () => {
-    const accessToken = localStorage.getItem("access_token");
+    const accessToken: string | null = localStorage.getItem("access_token");
     return !!accessToken; // access_token이 있으면 로그인 상태로 간주합니다.
     return true;
   };
+  // 갤러리 확인
+  const isLoggedInOrgin = () => {
+    const accessToken: string | null = localStorage.getItem("access_token");
+    let userRole: string | null;
+    if (accessToken) {
+      const decodedToken = jwt_decode<DecodedToken>(accessToken);
+      userRole = decodedToken.role; // 디코딩된 토큰에서 'role' 값을 추출
+      if (userRole === "ROLE_ADMIN") {
+        return "admin";
+      } else if (userRole === "ROLE_USER") {
+        return "user";
+      } else if (userRole === "ROLE_GALLERY") {
+        return "gallery";
+      }
+    }
+    return false;
+  };
+  // 갤러리 권한 확인
+  const isAcceptedGallery = () => {
+    const accessToken: string | null = localStorage.getItem("access_token");
+    if (accessToken) {
+      const decodedToken = jwt_decode<DecodedToken>(accessToken);
+      console.log(decodedToken);
+      const accepted = decodedToken.accepted;
+      return accepted;
+    }
+    return false;
+  };
+  isAcceptedGallery;
   return (
     <div className="App">
       <Header />
@@ -73,11 +109,19 @@ function App() {
         />
         <Route
           path="/mypage/user"
-          element={isLoggedIn() ? <Mypage /> : <Navigate to="/login" />}
+          element={
+            isLoggedInOrgin() == "user" ? <Mypage /> : <Navigate to="/login" />
+          }
         />
         <Route
           path="/mypage/gallery"
-          element={isLoggedIn() ? <Mypage /> : <Navigate to="/login-gallery" />}
+          element={
+            isLoggedInOrgin() == "gallery" ? (
+              <Mypage />
+            ) : (
+              <Navigate to="/login-gallery" />
+            )
+          }
         />
 
         {/* Entrance Routes */}
@@ -114,28 +158,50 @@ function App() {
         {/* User Routes */}
         <Route
           path="/art-memory"
-          element={isLoggedIn() ? <ArtMemory /> : <Navigate to="/login" />}
+          element={
+            isLoggedInOrgin() == "user" ? (
+              <ArtMemory />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route
           path="/art-memory/:pk"
           element={
-            isLoggedIn() ? <ArtMemoryDetail /> : <Navigate to="/login" />
+            isLoggedInOrgin() == "user" ? (
+              <ArtMemoryDetail />
+            ) : (
+              <Navigate to="/login" />
+            )
           }
         />
         <Route
           path="/art-memory/:pk/edit"
-          element={isLoggedIn() ? <ArtMemoryEdit /> : <Navigate to="/login" />}
+          element={
+            isLoggedInOrgin() == "user" ? (
+              <ArtMemoryEdit />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route
           path="/art-memory/:pk/3d"
-          element={isLoggedIn() ? <ThreeTest /> : <Navigate to="/login" />}
+          element={
+            isLoggedInOrgin() == "user" ? (
+              <ThreeTest />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
 
         {/* Gallery Routes */}
         <Route
           path="/exhibition-board"
           element={
-            isLoggedIn() ? (
+            isLoggedInOrgin() == "gallery" ? (
               <ExhibitionBoard />
             ) : (
               <Navigate to="/login-gallery" />
@@ -145,7 +211,7 @@ function App() {
         <Route
           path="/exhibition-board/create"
           element={
-            isLoggedIn() ? (
+            isLoggedInOrgin() == "gallery" ? (
               <ExhibitionCreate />
             ) : (
               <Navigate to="/login-gallery" />
@@ -155,13 +221,17 @@ function App() {
         <Route
           path="/exhibition-board/:pk"
           element={
-            isLoggedIn() ? <WorksBoard /> : <Navigate to="/login-gallery" />
+            isLoggedInOrgin() == "gallery" ? (
+              <WorksBoard />
+            ) : (
+              <Navigate to="/login-gallery" />
+            )
           }
         />
         <Route
           path="/exhibition-board/:pk/update"
           element={
-            isLoggedIn() ? (
+            isLoggedInOrgin() == "gallery" ? (
               <ExhibitionUpdate />
             ) : (
               <Navigate to="/login-gallery" />
@@ -171,23 +241,41 @@ function App() {
         <Route
           path="/exhibition-board/:pk/create"
           element={
-            isLoggedIn() ? <WorksCreate /> : <Navigate to="/login-gallery" />
+            isLoggedInOrgin() == "gallery" ? (
+              <WorksCreate />
+            ) : (
+              <Navigate to="/login-gallery" />
+            )
           }
         />
         <Route
           path="/exhibition-board/:pk/:pk"
           element={
-            isLoggedIn() ? <WorksDetail /> : <Navigate to="/login-gallery" />
+            isLoggedInOrgin() == "gallery" ? (
+              <WorksDetail />
+            ) : (
+              <Navigate to="/login-gallery" />
+            )
           }
         />
         <Route
           path="/gallery/add-iot"
-          element={isLoggedIn() ? <IoTAdd /> : <Navigate to="/login-gallery" />}
+          element={
+            isLoggedInOrgin() == "gallery" ? (
+              <IoTAdd />
+            ) : (
+              <Navigate to="/login-gallery" />
+            )
+          }
         />
         <Route
           path="/gallery/iot-board"
           element={
-            isLoggedIn() ? <IoTBoard /> : <Navigate to="/login-gallery" />
+            isLoggedInOrgin() == "gallery" ? (
+              <IoTBoard />
+            ) : (
+              <Navigate to="/login-gallery" />
+            )
           }
         />
 
@@ -195,31 +283,51 @@ function App() {
         <Route
           path="/user-board"
           element={
-            isLoggedIn() ? <UserBoard /> : <Navigate to="/login-admin" />
+            isLoggedInOrgin() == "admin" ? (
+              <UserBoard />
+            ) : (
+              <Navigate to="/login-admin" />
+            )
           }
         />
         <Route
           path="/user-board/:pk"
           element={
-            isLoggedIn() ? <UserDetail /> : <Navigate to="/login-admin" />
+            isLoggedInOrgin() == "admin" ? (
+              <UserDetail />
+            ) : (
+              <Navigate to="/login-admin" />
+            )
           }
         />
         <Route
           path="/gallery-board"
           element={
-            isLoggedIn() ? <GalleryBoard /> : <Navigate to="/login-admin" />
+            isLoggedInOrgin() == "admin" ? (
+              <GalleryBoard />
+            ) : (
+              <Navigate to="/login-admin" />
+            )
           }
         />
         <Route
           path="/gallery-board/:pk"
           element={
-            isLoggedIn() ? <GalleryDetail /> : <Navigate to="/login-admin" />
+            isLoggedInOrgin() == "admin" ? (
+              <GalleryDetail />
+            ) : (
+              <Navigate to="/login-admin" />
+            )
           }
         />
         <Route
           path="/gallery-board/create"
           element={
-            isLoggedIn() ? <GalleryCreate /> : <Navigate to="/login-admin" />
+            isLoggedInOrgin() == "admin" ? (
+              <GalleryCreate />
+            ) : (
+              <Navigate to="/login-admin" />
+            )
           }
         />
 
@@ -239,9 +347,7 @@ function App() {
         {/* Only Developer */}
         <Route path="/3d" element={<ThreeTest />} />
         <Route path="/PM" element={<PageManager />} />
-        <Route path="/api" element={<Apitest />} />
-        <Route path="/api_signup" element={<TestSignup />} />
-        <Route path="/api_login" element={<TestLogin />} />
+
         {/* 404 Not Found */}
         <Route path="*" element={<NotFound />} />
       </Routes>

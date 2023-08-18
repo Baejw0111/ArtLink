@@ -114,8 +114,10 @@ function SignUpForm() {
         setisActive(true);
       } else if (!showGalleryNameField) {
         console.log("유저 회원가입 요청");
-        const numericPhoneNumber = String(formData.phoneNumber);
-        const formattedPhoneNumber = "82" + numericPhoneNumber.slice(1, 11);
+        // const numericPhoneNumber = String(formData.phoneNumber);
+        const formattedPhoneNumber = Number(
+          "82" + String(formData.phoneNumber)
+        );
         const updatedFormData = {
           ...formData,
           phoneNumber: Number(formattedPhoneNumber),

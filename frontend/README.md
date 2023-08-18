@@ -10,14 +10,14 @@
 
 ## 기술스택 및 라이브러리
 
-| Tech       | Version | Description           |
-| ---------- | ------- | --------------------- |
-| Node.js    | 18.16.1 |                       |
-| TypeScript | 5.0.2   | JavaScript Superset   |
-| Three.js   | 0.154.0 | JavaScript 3D Library |
-| React      | 18.2.0  | JavaScript Framework  |
-| ESLint     | 8.44.0  |                       |
-| Vite       | 4.4.0   |                       |
+| Tech       | Version | Description             |
+| ---------- | ------- | ----------------------- |
+| Node.js    | 18.16.1 | JavaScript Runtime      |
+| TypeScript | 5.0.2   | JavaScript Superset     |
+| Three.js   | 0.154.0 | JavaScript 3D Library   |
+| React      | 18.2.0  | JavaScript Framework    |
+| ESLint     | 8.44.0  | JavaScript Linter       |
+| Vite       | 4.4.0   | Build Tool & Dev Server |
 
 <!-- 필수 항목 -->
 
@@ -46,81 +46,35 @@
    pnpm i
    ```
 
-   pnpm은 npm보다 패키지 관리가 효율적이기 때문에 패키지 관리 시 pnpm을 설치해 사용하는 것을 권장함.
+   npm을 써도 되지만pnpm은 npm보다 패키지 관리가 효율적이기 때문에 패키지 관리 시 pnpm을 설치해 사용하는 것을 권장함.
 
 4. 프로젝트 실행
+
+   npm:
+
+   ```
+   npm run dev
+   ```
+
+   pnpm:
+
    ```
    pnpm run dev
    ```
 
-## 컴포넌트 구조
+5. 프로젝트 빌드
 
-```
-.
-├── Base
-│   ├── BigButton
-│   ├── MainLogo
-│   ├── Menu
-│   └── ProfileBox
-├── Entrance
-│   ├── EntranceLogo
-│   ├── LogIn
-│   └── SignUp
-├── HomeWho
-│   ├── HomeGallery
-│   ├── HomeManager
-│   └── HomeUser
-├── InfoTable
-│   ├── ArtworkInfoRow
-│   ├── ArtworkInfoTable
-│   ├── InputInfoRow
-│   ├── InputInfoTable
-│   ├── MyInfoRow
-│   ├── MyInfoTable
-│   ├── UserInfoRow
-│   └── UserInfoTable
-└── ViewExhibition
-    ├── ArtworkBox
-    ├── ExhibitionBox
-    ├── ExhibitionTable
-    ├── MyRecordBox
-    └── Vuew3D
-```
+   npm:
 
-<!--
-# Base
-## BigButton
-## MainLogo
-## Menu
-## ProfileBox
+   ```
+   npm run build
+   ```
 
-# Entrance
-## EntranceLogo
-## LogIn
-## SignUp
+   pnpm:
 
-# HomeWho
-## HomeGallery
-## HomeManager
-## HomeUser
-
-# InfoTable
-## ArtworkInfoRow
-## ArtworkInfoTable
-## InputInfoRow
-## InputInfoTable
-## MyInfoRow
-## MyInfoTable
-## UserInfoRow
-## UserInfoTable
-
-# ViewExhibition
-## ArtworkBox
-## ExhibitionBox
-## ExhibitionTable
-## MyRecordBox
-## Vuew3D
--->
+   ```
+   pnpm build
+   ```
 
 ## 라우터 구조(Page 디렉토리 구조)
 

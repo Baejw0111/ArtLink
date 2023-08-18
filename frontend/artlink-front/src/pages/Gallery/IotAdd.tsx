@@ -15,9 +15,11 @@ function IoTAdd() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     if (name === "phoneNumber") {
+      const numericPhoneNumber = String(deviceData.phoneNumber);
+      const formattedPhoneNumber = "82" + numericPhoneNumber.slice(1, 11);
       setDeviceData((prevData) => ({
         ...prevData,
-        [name]: Number("82" + value),
+        [name]: Number(formattedPhoneNumber),
       }));
     } else {
       setDeviceData((prevData) => ({

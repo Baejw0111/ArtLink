@@ -26,7 +26,6 @@ import SpotLight2 from "../Threejs/Controls/SpotLight2";
 // OBJ
 // import ShapeTest from "../Threejs/OBJ/ShapeTest";
 import { Ground } from "../Threejs/OBJ/Groud";
-// import Floor from "../Threejs/OBJ/Floor";
 import { Frame } from "../Threejs/OBJ/GalleryItems";
 
 // test
@@ -97,7 +96,6 @@ function ThreeTest() {
           </KeyboardControls>
           {/* <ShapeTest /> */}
           <Ground />
-          {/* <Floor /> */}
         </Physics>
         <PointerLockControls />
       </Canvas>

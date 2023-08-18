@@ -1,8 +1,8 @@
 import { RigidBody } from "@react-three/rapier";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { LinearEncoding, RepeatWrapping, TextureLoader } from "three";
-import img1 from "../../../public/terrain-normal.jpg";
-import img2 from "../../../public/terrain-roughness.jpg";
+import img1 from "../../assets/terrain-normal.jpg";
+import img2 from "../../assets/terrain-roughness.jpg";
 
 export default function Floor() {
   const [roughness, normal] = useLoader(TextureLoader, [img1, img2]);

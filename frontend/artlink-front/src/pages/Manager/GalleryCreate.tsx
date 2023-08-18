@@ -15,6 +15,9 @@ function GalleryCreate() {
     password: "",
     galleryName: "",
   });
+  const [passID, setPassID] = useState(false);
+  const [passPW, setPassPW] = useState(false);
+  const [passName, setPassName] = useState(false);
 
   // 각 필드와 필드에 대한 이름을 매핑한 객체
   const fieldNames: Record<keyof GalleryCreateReq, string> = {
@@ -32,6 +35,19 @@ function GalleryCreate() {
   // 생성 API
   const callCreateWork = async () => {
     try {
+      if (!passID) {
+        window.alert("아이디는 4글자 이상이어야 합니다. 다시 확인해주세요.");
+        return;
+      } else if (!passPW) {
+        window.alert("비밀번호는 4글자 이상이어야 합니다. 다시 확인해주세요.");
+        return;
+      } else if (!passName) {
+        window.alert(
+          "갤러리 이름은 2글자 이상이어야 합니다. 다시 확인해주세요."
+        );
+        return;
+      }
+
       setAuthorizationHeader();
       const response = await AddGallery(galleryInfo);
       console.log("갤러리 계정 생성:", response);
@@ -50,6 +66,16 @@ function GalleryCreate() {
       ...prevData,
       [name]: value,
     }));
+
+    if (name === "username" && value.length >= 4) {
+      setPassID(true);
+    }
+    if (name === "password" && value.length >= 4) {
+      setPassPW(true);
+    }
+    if (name === "galleryName" && value.length >= 2) {
+      setPassName(true);
+    }
   };
 
   // 인풋 필드 자동 생성

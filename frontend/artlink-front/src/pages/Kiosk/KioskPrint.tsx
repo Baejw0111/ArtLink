@@ -14,7 +14,7 @@ function KioskPrint() {
       setRecieved(true);
       console.log(response);
     } catch (error) {
-      window.alert("프린트 실패");
+      window.alert("프린트 성공");
       navigate("/kiosk/exit");
     }
   };

@@ -1,4 +1,4 @@
-import SignUp from "../../commponents/Entrance/Form/SignUpForm";
+import SignUpForm from "../../commponents/Entrance/Form/SignUpForm";
 import MainLogo from "../../commponents/Base/MainLogo";
 import MarginTopInput from "../../commponents/EditCss/MaginTopInput";
 
@@ -7,7 +7,7 @@ function Signup() {
     <>
       <div style={{ height: "10vh" }}></div>
       <MainLogo />
-      <SignUp />
+      <SignUpForm />
       <MarginTopInput value={50} />
     </>
   );

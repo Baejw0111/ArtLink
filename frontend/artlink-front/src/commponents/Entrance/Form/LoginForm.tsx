@@ -64,6 +64,7 @@ function LoginForm() {
             className="input-box"
             onChange={handleChange}
             onKeyPress={handleKeyPress}
+            required
           />
           <br />
           <br />
@@ -77,6 +78,7 @@ function LoginForm() {
             className="input-box"
             onChange={handleChange}
             onKeyPress={handleKeyPress}
+            required
           />
           <br />
           {/* <div className="forget">

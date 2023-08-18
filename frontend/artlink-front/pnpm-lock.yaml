@@ -59,6 +59,12 @@ dependencies:
   lodash.debounce:
     specifier: ^4.0.8
     version: 4.0.8
+  maath:
+    specifier: ^0.7.0
+    version: 0.7.0(@types/three@0.154.0)(three@0.154.0)
+  postprocessing:
+    specifier: ^6.33.0
+    version: 6.33.0(three@0.154.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -89,6 +95,9 @@ dependencies:
   three:
     specifier: ^0.154.0
     version: 0.154.0
+  uuid-by-string:
+    specifier: ^4.0.0
+    version: 4.0.0
   wouter:
     specifier: ^2.11.0
     version: 2.11.0(react@18.2.0)
@@ -3221,6 +3230,14 @@ packages:
       react: 18.2.0
     dev: false
 
+  /js-md5@0.7.3:
+    resolution: {integrity: sha512-ZC41vPSTLKGwIRjqDh8DfXoCrdQIyBgspJVPXHBGu4nZlAEvG3nf+jO9avM9RmLiGakg7vz974ms99nEV0tmTQ==}
+    dev: false
+
+  /js-sha1@0.6.0:
+    resolution: {integrity: sha512-01gwBFreYydzmU9BmZxpVk6svJJHrVxEN3IOiGl6VO93bVKYETJ0sIth6DASI6mIFdt7NmfX9UiByRzsYHGU9w==}
+    dev: false
+
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -3342,6 +3359,16 @@ packages:
 
   /maath@0.6.0(@types/three@0.154.0)(three@0.154.0):
     resolution: {integrity: sha512-dSb2xQuP7vDnaYqfoKzlApeRcR2xtN8/f7WV/TMAkBC8552TwTLtOO0JTcSygkYMjNDPoo6V01jTw/aPi4JrMw==}
+    peerDependencies:
+      '@types/three': '>=0.144.0'
+      three: '>=0.144.0'
+    dependencies:
+      '@types/three': 0.154.0
+      three: 0.154.0
+    dev: false
+
+  /maath@0.7.0(@types/three@0.154.0)(three@0.154.0):
+    resolution: {integrity: sha512-JQ1JZrQLDgJ59snCk2AcSb/jdGwNgGQXlLcfZChN8lmpMR7g3bpMM3ugcqGfU1ROwjVvX5CvcVJHc8TkxljG8Q==}
     peerDependencies:
       '@types/three': '>=0.144.0'
       three: '>=0.144.0'
@@ -4201,6 +4228,13 @@ packages:
   /utility-types@3.10.0:
     resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
     engines: {node: '>= 4'}
+    dev: false
+
+  /uuid-by-string@4.0.0:
+    resolution: {integrity: sha512-88ZSfcSkN04juiLqSsuyteqlSrXNFdsEPzSv3urnElDXNsZUXQN0smeTnh99x2DE15SCUQNgqKBfro54CuzHNQ==}
+    dependencies:
+      js-md5: 0.7.3
+      js-sha1: 0.6.0
     dev: false
 
   /vite@4.4.0(@types/node@20.4.6)(sass@1.64.0):

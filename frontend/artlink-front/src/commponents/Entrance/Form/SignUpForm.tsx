@@ -129,19 +129,18 @@ function SignUpForm() {
     }
   };
 
-  // 입력창에서 엔터키 누를 시 폼 제출
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      void reqSignup();
-      console.log("enter key pressed");
-    }
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    event.preventDefault();
+    void reqSignup();
   };
+
   return (
     <>
       <BackBtn />
       <MarginTopInput value={20} />
       <p className="loginTitle">{"회원가입"}</p>
-      <form className="box">
+      <form className="box" onSubmit={handleSubmit}>
         <label>아이디</label>
         <input
           type="text"
@@ -150,7 +149,6 @@ function SignUpForm() {
           placeholder="Enter ID"
           className="input-box"
           onChange={handleChange}
-          onKeyPress={handleKeyPress}
           required
         />
         {/* 아이디 중복체크 */}
@@ -165,7 +163,6 @@ function SignUpForm() {
           placeholder="Enter Password"
           className="input-box"
           onChange={handleChange}
-          onKeyPress={handleKeyPress}
           required
         />
         <input
@@ -173,7 +170,6 @@ function SignUpForm() {
           placeholder="Confirm Password"
           className="input-box"
           onChange={handlePass}
-          onKeyPress={handleKeyPress}
           required
         />
         <br />
@@ -192,7 +188,6 @@ function SignUpForm() {
               placeholder="Enter nickname"
               className="input-box"
               onChange={handleChange}
-              onKeyPress={handleKeyPress}
               required
             />
             <br />
@@ -207,7 +202,6 @@ function SignUpForm() {
               placeholder="Enter phone number"
               className="input-box"
               onChange={handleChange}
-              onKeyPress={handleKeyPress}
               required
             />
           </>
@@ -224,7 +218,6 @@ function SignUpForm() {
               placeholder="Enter gallery name"
               className="input-box"
               onChange={handleChange}
-              onKeyPress={handleKeyPress}
               required
             />
           </>
@@ -232,7 +225,7 @@ function SignUpForm() {
         {/* 에러메세지 띄우기 */}
         <div className="errorMsg">{}</div>
         <MarginTopInput value={50} />
-        <button type="submit" className="btn" onClick={reqSignup}>
+        <button type="submit" className="btn">
           <p>회원가입</p>
         </button>
         <Modal sendActive={isActive} />

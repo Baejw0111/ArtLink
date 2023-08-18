@@ -36,81 +36,85 @@ function HomeBase({
 
   return (
     <>
-      <div >
+      <div>
         <MainLogo />
       </div>
       <div className="BigBtnBox2">
         {/* Menu : Your Memory */}
         <div className={styles.startbtnBody}>
-          <div className={`${styles.startbtnOuter} ${
-              showAnimation ? styles.animateBtn : ""
-            }`}>
           <div
-            className={`${styles.startbtn} ${
-              showAnimation ? styles.animateBtn2 : ""
+            className={`${styles.startbtnOuter} ${
+              showAnimation ? styles.animateBtn : ""
             }`}
-            style={{ textDecoration: "none" }}
-            onClick={accepted ? () => handleClick(firstLink) : undefined}
           >
-            <div style={{ margin: "auto" }}>
-              <p
-                className={`${styles.innerIcon} ${
-                  showAnimation ? styles.animateText2 : ""
-                }`}
-              >
-                {firstTitle}
-              </p>
-              <p
-                className={`${styles.innerIcon2} ${
-                  showAnimation ? styles.animateText2 : ""
-                }`}
-              >
-                {firstQuote}
-              </p>
-              {!accepted && (
+            <div
+              className={`${styles.startbtn} ${
+                showAnimation ? styles.animateBtn2 : ""
+              }`}
+              style={{ textDecoration: "none" }}
+              onClick={accepted ? () => handleClick(firstLink) : undefined}
+            >
+              <div style={{ margin: "auto" }}>
                 <p
-                  style={{ color: "red" }}
                   className={`${styles.innerIcon} ${
                     showAnimation ? styles.animateText2 : ""
                   }`}
                 >
-                  {"Authorization required!"}
+                  {firstTitle}
                 </p>
-              )}
+                <p
+                  className={`${styles.innerIcon2} ${
+                    showAnimation ? styles.animateText2 : ""
+                  }`}
+                >
+                  {firstQuote}
+                </p>
+                {!accepted && (
+                  <p
+                    style={{ color: "red" }}
+                    className={`${styles.innerIcon2} ${
+                      showAnimation ? styles.animateText2 : ""
+                    }`}
+                  >
+                    {"Authorization required!"}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
           </div>
         </div>
         {/* Menu : My Page */}
         <div className={styles.startbtnBody}>
-        <div className={`${styles.startbtnOuter} ${
-              showAnimation ? styles.animateBtn : ""
-            }`}>
           <div
-            className={`${styles.startbtn} ${
-              showAnimation ? styles.animateBtn2 : ""
+            className={`${styles.startbtnOuter} ${
+              showAnimation ? styles.animateBtn : ""
             }`}
-            style={{ textDecoration: "none" }}
-            onClick={() => handleClick(secondLink)}
           >
-            <div style={{ margin: "auto" }}>
-              <p
-                className={`${styles.innerIcon} ${
-                  showAnimation ? styles.animateText2 : ""
-                }`}
-              >
-                {secondTitle}
-              </p>
-              <p
-                className={`${styles.innerIcon2} ${
-                  showAnimation ? styles.animateText2 : ""
-                }`}
-              >
-                {secondQuote}
-              </p>
+            <div
+              className={`${styles.startbtn} ${
+                showAnimation ? styles.animateBtn2 : ""
+              }`}
+              style={{ textDecoration: "none" }}
+              onClick={() => handleClick(secondLink)}
+            >
+              <div style={{ margin: "auto" }}>
+                <p
+                  className={`${styles.innerIcon} ${
+                    showAnimation ? styles.animateText2 : ""
+                  }`}
+                >
+                  {secondTitle}
+                </p>
+                <p
+                  className={`${styles.innerIcon2} ${
+                    showAnimation ? styles.animateText2 : ""
+                  }`}
+                >
+                  {secondQuote}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </>

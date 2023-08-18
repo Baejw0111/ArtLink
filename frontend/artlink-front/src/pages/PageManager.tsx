@@ -130,9 +130,7 @@ function PageManager() {
           <h3>{`<기능수정>`}</h3>
           <div style={{ fontSize: "12px" }}>
             <p>마이페이지 전화번호 폼</p>
-            <p>승인되지않은 갤러리 처리</p>
             <p>갤러리 생성 빈 상태로 가능한것 고치기</p>
-            <p>UCC Aboutpage3에 심기</p>
             <p>리프레시 토큰 설정</p>
             <p>글자수 제한 관련 </p>
             <p>홈화면에 진입시 최상단으로 이동하게</p>
@@ -141,7 +139,6 @@ function PageManager() {
           <h3>{`<디자인수정>`}</h3>
           <div style={{ fontSize: "12px" }}>
             <p>보드 디자인</p>
-            <p>키오스크 전반 디자인</p>
           </div>
           <h3>{`<ETC>`}</h3>
           <div style={{ fontSize: "12px" }}>

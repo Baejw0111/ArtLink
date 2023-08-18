@@ -69,6 +69,11 @@ def post(sender, **kwargs):
         data = data['L']
         R = device.services.get_coordination_by_input(deviceid, data)
 
+
+        pub_topic = f'StoD/{deviceid}'
+        MQTT_BROKER_HOST = 'mosquitto'
+        MQTT_BROKER_PORT = 1883
+
         coor, exhibition = R[0], R[1]
         print(coor, exhibition, flush = True)
         count = ArtworkService.get_artwork_count(exhibition)

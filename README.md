@@ -15,16 +15,25 @@
 ## 프로젝트 소개
 
 - 프로젝트명 : ArtLink
+
 - 서비스 특징: 웹 IoT 프로젝트
+
 - 주요 기능
+
   - 관람자가 인상적이었던 작품 기록 및 조회
+
 - 주요 기술
+
   - Single Page Application
   - Responsive Web Application
   - UWB
+
   - REST API
+
 - 배포 환경
+
   - URL: https://i9a202.p.ssafy.io/
+
   - 테스트 계정:
     | Role|ID|Password|
     |:-:|:-:|:-:|
@@ -90,3 +99,25 @@
 ### ERD
 
 ![ERD](./docs/ERD.PNG)
+
+### UCC
+
+![UCC](./videos/1.0.0.mp4)
+
+### 웹사이트 살펴보기
+
+#### User
+
+![User](./videos/user.mp4)
+
+#### Gallery
+
+![Gallery](./videos/gallery.mp4)
+
+#### Admin
+
+![Admin](./videos/admin.mp4)
+
+#### Kiosk
+
+![Kiosk](./videos/kiosk.mp4)

@@ -78,49 +78,84 @@
 
 ## 라우터 구조(Page 디렉토리 구조)
 
-<Service start>
-/ : 로고와 이동화살
-/login : 로그인
-/signup : 회원가입
-/login-gallery : 로그인
-/signup-gallery : 회원가입
-/login-admin : 로그인
+### Service start
 
-<User>
-/home : (유저 갤러리 매니저) 공통 
-/art-memory : 과거 여정들 조회
-/art-memory/<pk> : 과거 여정 상세 조회
-/art-memory/<pk>/edit : 선택 과거 여정 edit
-/art-memory/<pk>/3d : threeJs 조회 
-/mypage : 마이페이지 (유저, 갤러리 공통)
-/mypage/edit : 마이페이지 수정
+`/` : 로고와 이동화살
 
-<Gallery>
-/home : (유저 갤러리 매니저) 공통
-/works-board : Artwork Manage board
-/works-board/create : Artwork C
-/works-board/<pk> : Artwork R
-/works-board/<pk>/edit : Artwork U & D
-/gallery/addiot : 히든 Url) iot 등록
-/gallery/removeiot : 히든 Url) iot 해제
-/mypage : 마이페이지 (유저, 갤러리 공통)
-/mypage/edit : 마이페이지 수정
+`/login` : 로그인
 
-<Manager>
-/home : (유저 갤러리 매니저) 공통 
-/user-board : 유저리스트 소팅
-/user-board/<pk> : 선택 유저 정보 관리
-/gallery-manage : 갤러리리스트 소팅
-/gallery-manage/<pk> : 선택 갤러리 정보 관리
+`/signup` : 회원가입
 
-<Kiosk>
-/kiosk/home : 키오스크 홈 (최대한 원페이지로 구현하자!)
-/kiosk/<pk> : 전시 여정
-/kiosk/<pk>/edit : 전시 여정 수정
-/kiosk/print : 전시 프린트
-/kiosk/exit : 전시 종료
-/kiosk/result/<pk> : 사용자 기념품
+`/login-gallery` : 로그인
 
-<Other>
-/contact : 연락
-/about : 서비스 및 팀소개
+`/signup-gallery` : 회원가입
+
+`/login-admin` : 로그인
+
+### User
+
+`/home` : (유저 갤러리 매니저) 공통
+
+`/art-memory` : 과거 여정들 조회
+
+`/art-memory/<pk>` : 과거 여정 상세 조회
+
+`/art-memory/<pk>/edit` : 선택 과거 여정 edit
+
+`/art-memory/<pk>/3d` : threeJs 조회
+
+`/mypage` : 마이페이지 (유저, 갤러리 공통)
+
+`/mypage/edit` : 마이페이지 수정
+
+### Gallery
+
+`/home` : (유저 갤러리 매니저) 공통
+
+`/works-board` : Artwork Manage board
+
+`/works-board/create` : Artwork C
+
+`/works-board/<pk>` : Artwork R
+
+`/works-board/<pk>/edit` : Artwork U & D
+
+`/gallery/addiot` : 히든 Url) iot 등록
+
+`/gallery/removeiot` : 히든 Url) iot 해제
+
+`/mypage` : 마이페이지 (유저, 갤러리 공통)
+
+`/mypage/edit` : 마이페이지 수정
+
+### Manager
+
+`/home` : (유저 갤러리 매니저) 공통
+
+`/user-board` : 유저리스트 소팅
+
+`/user-board/<pk>` : 선택 유저 정보 관리
+
+`/gallery-manage` : 갤러리리스트 소팅
+
+`/gallery-manage/<pk>` : 선택 갤러리 정보 관리
+
+### Kiosk
+
+`/kiosk/home` : 키오스크 홈
+
+`/kiosk/<pk>` : 전시 여정
+
+`/kiosk/<pk>/edit` : 전시 여정 수정
+
+`/kiosk/print` : 전시 프린트
+
+`/kiosk/exit` : 전시 종료
+
+`/kiosk/result/<pk>` : 사용자 기념품
+
+### Other
+
+`/contact` : 연락
+
+`/about` : 서비스 및 팀소개

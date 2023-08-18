@@ -10,7 +10,7 @@ import {
 import BackBtn from "../../Base/BackBtn";
 import MarginTopInput from "../../EditCss/MaginTopInput";
 
-function SignupForm() {
+function SignUpForm() {
   const [isActive, setisActive] = useState(false); // 모달창 띄울 때 사용
   const [passID, setPassID] = useState(false);
   const [passPW, setPassPW] = useState(false);
@@ -241,4 +241,4 @@ function SignupForm() {
     </>
   );
 }
-export default SignupForm;
+export default SignUpForm;

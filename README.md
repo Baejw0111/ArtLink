@@ -1,6 +1,4 @@
-# 웹/모바일(웹 IoT) 스켈레톤 프로젝트
-
-<!-- 필수 항목 -->
+# ArtLink
 
 ## 카테고리
 
@@ -14,8 +12,6 @@
 | :black_square_button: Desktop App | :black_square_button: Game            | :black_square_button: Java    | :white_check_mark: Spring/Springboot |
 |                                   |                                       | :black_square_button: Kotlin  |                                      |
 
-<!-- 필수 항목 -->
-
 ## 프로젝트 소개
 
 - 프로젝트명 : ArtLink
@@ -27,30 +23,33 @@
   - Responsive Web Application
   - UWB
   - REST API
-- 참조 리소스
-  - Material-UI: React Component Library
 - 배포 환경
-  - URL: // 웹 서비스, 랜딩 페이지, 프로젝트 소개 등의 배포 URL 기입
-  - 테스트 계정: // 로그인이 필요한 경우, 사용 가능한 테스트 계정(ID/PW) 기입
-
-<!-- 자유 양식 -->
+  - URL: https://i9a202.p.ssafy.io/
+  - 테스트 계정:
+    | Role|ID|Password|
+    |:-:|:-:|:-:|
+    | User | ssafy_user | 1234
+    | Gallery | ssafy_gallery | 1234
+    | Admin | ssafy_admin | 1234
 
 ## 팀 소개
 
-- 박건희: 팀장, 임베디드 시스템 개발
-- 김수현: 백엔드 개발, DB 설계
-- 배정원: 프론트엔드 개발
-- 김진현: 백엔드 개발, API 문서 관리
-- 조재웅: 기획 담당 및 임베디드 시스템 개발
-- 조준하: 프론트엔드 개발 및 디자인 담당
-
-<!-- 자유 양식 -->
+|  이름  |                     역할                     |
+| :----: | :------------------------------------------: |
+| 박건희 |          팀장, 임베디드 시스템 개발          |
+| 김수현 |             백엔드 개발, DB 설계             |
+| 배정원 |      프론트엔드 개발, 기능 구현 및 설계      |
+| 김진현 |          백엔드 개발, API 문서 관리          |
+| 조재웅 | 기획 담당 및 임베디드 시스템 개발, 도커 개발 |
+| 조준하 |        프론트엔드 개발 및 디자인 담당        |
 
 ## 프로젝트 상세 설명
 
 ### 개발 환경
 
 **AWS EC2 Ubuntu 20.04 LTS**
+
+**Window 10**
 
 ### 기술 스택
 
@@ -63,7 +62,7 @@
 #### BackEnd
 
 |                                        Java                                        |                                      SpringBoot                                      |                                        Nginx                                        |                                        Docker                                        |
-| :--------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
+| :--------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
 | <img src="https://icons.terrastruct.com/dev%2Fjava.svg" width="100" height="100"/> | <img src="https://spring.io/img/projects/spring-boot.svg" width="100" height="100"/> | <img src="https://icons.terrastruct.com/dev%2Fnginx.svg" width="100" height="100"/> | <img src="https://icons.terrastruct.com/dev%2Fdocker.svg" width="100" height="100"/> |
 
 #### Embedded
@@ -85,7 +84,9 @@
 | <img src="https://icons.terrastruct.com/dev%2Fgit.svg" width="100" height="100"/> | <img src="https://icons.terrastruct.com/dev%2Fgitlab.svg" width="100" height="100"/> | <img src="https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-icon.svg" width="100" height="100"/> |
 
 ### 시스템 구성도
+
 ![system](./docs/system.png)
+
 ### ERD
+
 ![ERD](./docs/ERD.PNG)
-### 기능 상세 설명

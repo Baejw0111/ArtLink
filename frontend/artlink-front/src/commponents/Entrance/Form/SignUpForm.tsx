@@ -12,6 +12,12 @@ import MarginTopInput from "../../EditCss/MaginTopInput";
 
 function SignupForm() {
   const [isActive, setisActive] = useState(false); // 모달창 띄울 때 사용
+  const [passID, setPassID] = useState(false);
+  const [passPW, setPassPW] = useState(false);
+  const [passPWCheck, setPassPWCheck] = useState(false);
+  const [passNickname, setPassNickname] = useState(false);
+  const [passGalleryName, setPassGalleryName] = useState(false);
+  // const [passPhone, setPassPhone] = useState(false); // 전화번호 조건 설정 필요
 
   // 폼 데이터
   const [formData, setFormData] = useState<SignUpReq>({
@@ -31,6 +37,30 @@ function SignupForm() {
       ...prevData,
       [name]: value,
     }));
+
+    if (name === "username") {
+      if (value.length >= 4) {
+        setPassID(true);
+      }
+    } else if (name === "password") {
+      if (value.length >= 4) {
+        setPassPW(true);
+      }
+    } else if (showGalleryNameField && name === "galleryName") {
+      if (value.length >= 2) {
+        setPassGalleryName(true);
+      }
+    } else if (!showGalleryNameField && name === "nickname") {
+      if (value.length >= 2) {
+        setPassNickname(true);
+      }
+    }
+
+    // else if (name === "phoneNumber") {
+    //   if (value.length >= 2) {
+    //     setPassPhone(true);
+    //   }
+    // }
   };
 
   const handlePass = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,6 +68,7 @@ function SignupForm() {
     if (formData.password && value) {
       if (formData.password === value) {
         setPasswordCheckMsg("입력하신 값이 같습니다.");
+        setPassPWCheck(true);
       } else {
         setPasswordCheckMsg("입력하신 값이 다릅니다.");
       }
@@ -53,6 +84,29 @@ function SignupForm() {
   // 회원가입 API 요청
   const reqSignup = async () => {
     try {
+      if (!passID) {
+        window.alert("ID는 4글자 이상이어야 합니다. 다시 확인해주세요.");
+        return;
+      } else if (!passPW) {
+        window.alert("비밀번호는 4글자 이상이어야 합니다. 다시 확인해주세요.");
+        return;
+      } else if (!passPWCheck) {
+        window.alert("비밀번호를 동일하게 입력하셨는지 다시 확인해주세요.");
+        return;
+      } else if (!showGalleryNameField && !passNickname) {
+        window.alert("닉네임은 두 글자 이상이어야 합니다. 다시 확인해주세요.");
+        return;
+      } else if (showGalleryNameField && !passGalleryName) {
+        window.alert(
+          "갤러리 이름은 두 글자 이상이어야 합니다. 다시 확인해주세요."
+        );
+        return;
+      }
+      // else if (!passPhone) {
+      //   window.alert("전화번호가 올바르지 않습니다. 다시 확인해주세요.");
+      //   return;
+      // }
+
       if (showGalleryNameField) {
         console.log("갤러리 회원가입 요청");
         const response = await signUpGalleryApi(formData);
@@ -61,8 +115,11 @@ function SignupForm() {
       } else if (!showGalleryNameField) {
         console.log("유저 회원가입 요청");
         const numericPhoneNumber = String(formData.phoneNumber);
-        const formattedPhoneNumber = "82" + numericPhoneNumber.slice(1,11);
-        const updatedFormData = { ...formData, phoneNumber: Number(formattedPhoneNumber) };
+        const formattedPhoneNumber = "82" + numericPhoneNumber.slice(1, 11);
+        const updatedFormData = {
+          ...formData,
+          phoneNumber: Number(formattedPhoneNumber),
+        };
         const response = await signUpUserApi(updatedFormData);
         console.log(response);
         setisActive(true); // 성공 모달창
@@ -84,7 +141,7 @@ function SignupForm() {
       <BackBtn />
       <MarginTopInput value={20} />
       <p className="loginTitle">{"회원가입"}</p>
-      <div className="box">
+      <form className="box">
         <label>아이디</label>
         <input
           type="text"
@@ -94,6 +151,7 @@ function SignupForm() {
           className="input-box"
           onChange={handleChange}
           onKeyPress={handleKeyPress}
+          required
         />
         {/* 아이디 중복체크 */}
         <div className="idCheck">{}</div>
@@ -108,6 +166,7 @@ function SignupForm() {
           className="input-box"
           onChange={handleChange}
           onKeyPress={handleKeyPress}
+          required
         />
         <input
           type="password"
@@ -115,6 +174,7 @@ function SignupForm() {
           className="input-box"
           onChange={handlePass}
           onKeyPress={handleKeyPress}
+          required
         />
         <br />
         {/* 패스워드 다를시 로직 */}
@@ -133,6 +193,7 @@ function SignupForm() {
               className="input-box"
               onChange={handleChange}
               onKeyPress={handleKeyPress}
+              required
             />
             <br />
             <br />
@@ -147,6 +208,7 @@ function SignupForm() {
               className="input-box"
               onChange={handleChange}
               onKeyPress={handleKeyPress}
+              required
             />
           </>
         )}
@@ -163,19 +225,18 @@ function SignupForm() {
               className="input-box"
               onChange={handleChange}
               onKeyPress={handleKeyPress}
+              required
             />
           </>
         )}
         {/* 에러메세지 띄우기 */}
         <div className="errorMsg">{}</div>
-      <MarginTopInput value={50} />
+        <MarginTopInput value={50} />
         <button type="submit" className="btn" onClick={reqSignup}>
           <p>회원가입</p>
         </button>
         <Modal sendActive={isActive} />
-
-        
-      </div>
+      </form>
       <MarginTopInput value={40} />
     </>
   );

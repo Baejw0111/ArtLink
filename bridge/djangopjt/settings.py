@@ -9,18 +9,26 @@ ihttps://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import json
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+with open("secret.json", "r") as f:
+    secrets = json.loads(f.read())
+
+def get_secret(setting, secrets = secrets):
+    try:
+        return secrets[setting]
+    else:
+        raise ImproperlyConfigured("Error")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=r_7jjbmnm(3%e$u^kzpkz(bowujc+epa*!_cp*sqlf8id^$n-'
+SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -80,9 +88,9 @@ WSGI_APPLICATION = 'djangopjt.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bridge',
-        'USER': 'admin1',
-        'PASSWORD': 's09_a202_mysql',
+        'NAME': get_secret('MYSQL_DATABASE_NAME'),
+        'USER': get_secret('MYSQL_DATABASE_USER'),
+        'PASSWORD': get_secret('MYSQL_DATABASE_PASSWORD'),
         'HOST': "database",
         'PORT': "3306",
     }
@@ -129,4 +137,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SPRING_SERVER_PATH = 'https://i9a202.p.ssafy.io/api'
+SPRING_SERVER_PATH = 'http://localhost:8080'

@@ -102,24 +102,14 @@
 
 ![ERD](./docs/ERD.PNG)
 
-### UCC
-
-![UCC](https://youtu.be/5Un3q0GKFCQ)
+### 🔗 [UCC](https://youtu.be/5Un3q0GKFCQ)
 
 ### 웹사이트 살펴보기
 
-#### User
+#### 🔗 [User](https://youtu.be/E-OMx1Or-jg)
 
-![User](https://youtu.be/E-OMx1Or-jg)
+#### 🔗 [Gallery](https://youtu.be/yDGN31KiTq8)
 
-#### Gallery
+#### 🔗 [Admin](https://youtu.be/RqA36a-tj3A)
 
-![Gallery](https://youtu.be/yDGN31KiTq8)
-
-#### Admin
-
-![Admin](https://youtu.be/RqA36a-tj3A)
-
-#### Kiosk
-
-![Kiosk](https://youtube.com/shorts/10W5KVgX_Dw?feature=share)
+#### 🔗 [Kiosk](https://youtube.com/shorts/10W5KVgX_Dw?feature=share)

@@ -1,3 +1,5 @@
+![image](https://github.com/Baejw0111/ArtLink/assets/87963766/5e2f3098-b150-40ae-b75f-197689695035)
+
 # ArtLink
 
 ## 카테고리

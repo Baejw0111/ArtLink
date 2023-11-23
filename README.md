@@ -104,22 +104,22 @@
 
 ### UCC
 
-![UCC](./videos/1.0.0.mp4)
+![UCC](https://youtu.be/5Un3q0GKFCQ)
 
 ### 웹사이트 살펴보기
 
 #### User
 
-![User](./videos/user.mp4)
+![User](https://youtu.be/E-OMx1Or-jg)
 
 #### Gallery
 
-![Gallery](./videos/gallery.mp4)
+![Gallery](https://youtu.be/yDGN31KiTq8)
 
 #### Admin
 
-![Admin](./videos/admin.mp4)
+![Admin](https://youtu.be/RqA36a-tj3A)
 
 #### Kiosk
 
-![Kiosk](./videos/kiosk.mp4)
+![Kiosk](https://youtube.com/shorts/10W5KVgX_Dw?feature=share)
